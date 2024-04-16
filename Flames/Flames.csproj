@@ -713,7 +713,7 @@
     <Compile Include="1.9.3.9\Scripting\Plugin_simple\Scripting\CmdCompload.cs" />
     <Compile Include="1.9.3.9\Scripting\Plugin_simple\Scripting\CmdSimplePlugin.cs" />
     <Compile Include="1.9.3.9\Scripting\Plugin_simple\Scripting_Simple.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="program.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\sqlite3_x32.dll">
