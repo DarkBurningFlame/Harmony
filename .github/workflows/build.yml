@@ -15,7 +15,7 @@ jobs:
         shell: bash
         id: compile
         run: |
-          msbuild Flames.sln /p:Configuration=Release
+          msbuild Flames.sln /p:Configuration=Release /p:DefineConstants="CORE"
           cp -R bin/Release bin/Release_normal
           rm bin/Release/Flames_.dll bin/Release/Flames_.pdb
           msbuild Flames/Flames.csproj /p:Configuration=Release /p:DefineConstants="CORE"
@@ -31,5 +31,5 @@ jobs:
         with:
           SOURCE_FILE: 'bin/Release'
           DEST_NAME: 'Harmony'
-          NOTIFY_MESSAGE: 'Successfully compiled Harmony .NET build.'
+          NOTIFY_MESSAGE: 'Successfully compiled Harmony .NET build <@999409543001931788>'
           WEBHOOK_URL: '${{ secrets.WEBHOOK_URL }}'
