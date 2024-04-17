@@ -89,14 +89,12 @@ namespace Flames {
         public bool IsFire { get { return this == Flame; } }
         /// <summary> Backwards compatibility with MCGalaxy plugins </summary>
         public bool IsConsole { get { return this == Console; } }
-#if CORE
         /// <summary> Work on backwards compatibility with other cores </summary>
         public bool IsSparkie { get { return this == Sparks; } }
         /// <summary> Work on backwards compatibility with other cores </summary>
         public bool IsNova { get { return this == Nova; } }
         /// <summary> Work on backwards compatibility with other cores </summary>
         public bool IsRandom { get { return this == Random; } }
-#endif
 
         public virtual string FullName { get { return color + prefix + DisplayName; } }  
         public string ColoredName { get { return color + DisplayName; } }
