@@ -123,7 +123,7 @@ namespace Flames
         
     static void SayHello(SchedulerTask task)
     {
-        Command.Find("say").Use(Player.Flame, ConfigSoftwareNameVersioned + " &Sonline!" );
+        Command.Find("say").Use(Player.Flame, SoftwareNameVersioned + " &Sonline!" );
         Logger.Log(LogType.SystemActivity, "Hello World!");
     }
     static void ForceEnableTLS() {
