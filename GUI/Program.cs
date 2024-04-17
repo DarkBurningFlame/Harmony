@@ -29,12 +29,12 @@ namespace Flames.Gui
         public static void Main(string[] args) {
             SetCurrentDirectory();
 
-            // separate method, in case Flames_.dll is missing
+            // separate method, in case Harmony_.exe is missing
             try {
                 StartGUI();
             } catch (FileNotFoundException) {
                 // If Flames_.dll is missing, a FileNotFoundException will get thrown for Flames dll
-                Popup.Error("Cannot start server as Flames_.dll is missing from " + Environment.CurrentDirectory
+                Popup.Error("Cannot start server as Harmony_.exe is missing from " + Environment.CurrentDirectory
                             + "\n\nDownload it from " + Updater.UploadsURL);
                 return;
             }    
