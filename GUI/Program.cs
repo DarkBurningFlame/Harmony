@@ -33,7 +33,7 @@ namespace Flames.Gui
             try {
                 StartGUI();
             } catch (FileNotFoundException) {
-                // If Flames_.dll is missing, a FileNotFoundException will get thrown for Flames dll
+                // If Harmony_.exe is missing, a FileNotFoundException will get thrown for Harmony executable
                 Popup.Error("Cannot start server as Harmony_.exe is missing from " + Environment.CurrentDirectory
                             + "\n\nDownload it from " + Updater.UploadsURL);
                 return;
