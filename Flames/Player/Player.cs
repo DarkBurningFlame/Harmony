@@ -45,7 +45,6 @@ namespace Flames {
             Logger.Log(LogType.FlameMessage, message);
         }
     }
-#if CORE
         /// <summary> Work on backwards compatibility with other cores </summary>
     sealed class GoldenPlayer : Player {
         /// <summary> Work on backwards compatibility with other cores </summary>
@@ -105,14 +104,12 @@ namespace Flames {
             Logger.Log(LogType.RandomMessage, message);
         }
     }
-#endif
     public partial class Player : Entity, IDisposable {
 
         static int sessionCounter;
         public static Player Flame = new FlamePlayer();
         /// <summary> Backwards compatibility with MCGalaxy plugins </summary>
         public static Player Console = new FlamePlayer();
-#if CORE
         /// <summary> Work on backwards compatibility with other cores </summary>
         public static Player Sparks = new GoldenPlayer();
         /// <summary> Work on backwards compatibility with other cores </summary>
@@ -121,7 +118,6 @@ namespace Flames {
         public static Player Random = new RandomPlayer();
         /// <summary> Work on backwards compatibility with other cores </summary>
         public static Player Nova = new NovaPlayer();
-#endif
         //This is so that plugin devs can declare a player without needing a socket..
         //They would still have to do p.Dispose()..
         public Player(string playername) { 
