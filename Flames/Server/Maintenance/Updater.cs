@@ -27,21 +27,15 @@ namespace Flames
     public static class Updater
     {
 
-        public static string SourceURL = "https://github.com/RandomStrangers/Fire/";
-        public const string BaseURL = "https://github.com/RandomStrangers/Fire/blob/Flame/";
-        public const string UploadsURL = "https://github.com/RandomStrangers/Fire/tree/Flame/Uploads";
-        public const string UpdatesURL = "https://github.com/RandomStrangers/Fire/raw/Flame/Uploads/";
-        public const string SQLiteURL = "https://github.com/RandomStrangers/Fire/raw/Flame/Uploads/sqlite3.dll";
+        public static string SourceURL = "https://github.com/DarkBurningFlame/Harmony";
+        public const string BaseURL = "https://github.com/DarkBurningFlame/Harmony/blob/main/";
+        public const string UploadsURL = "https://github.com/DarkBurningFlame/Harmony/tree/main/Uploads";
+        public const string UpdatesURL = "https://github.com/DarkBurningFlame/Harmony/raw/main/Uploads/";
+        public const string SQLiteURL = "https://github.com/DarkBurningFlame/Harmony/raw/main/Uploads/sqlite3.dll";
         public static string WikiURL = "https://github.com/UnknownShadow200/MCGalaxy";
-#if CORE
         const string CurrentVersionURL = UpdatesURL + "dev.txt";
-        const string dllURL = UpdatesURL + "Flames_dev.dll";
-#else
-        const string CurrentVersionURL = UpdatesURL + "current.txt";
-        const string dllURL = UpdatesURL + "Flames_.dll";
-#endif
-        const string guiURL = UpdatesURL + "Flames.exe";
-        const string cliURL = UpdatesURL + "FlamesCLI.exe";
+        const string dllURL = UpdatesURL + "Harmony_.exe";
+        const string guiURL = UpdatesURL + "Harmony.exe";
 
         public static event EventHandler NewerVersionDetected;
 
@@ -93,7 +87,6 @@ namespace Flames
                 WebClient client = HttpUtil.CreateWebClient();
                 client.DownloadFile(dllURL, "Flames_.update");
                 client.DownloadFile(guiURL, "Flames.update");
-                client.DownloadFile(cliURL, "FlamesCLI.update");
 
                 Level[] levels = LevelInfo.Loaded.Items;
                 foreach (Level lvl in levels)
@@ -116,7 +109,6 @@ namespace Flames
 
                 File.Move("Flames_.update", "Flames_.dll");
                 File.Move("Flames.update", "Flames.exe");
-                File.Move("FlamesCLI.update", "FlamesCLI.exe");
                 Server.Stop(true, "Updating server.");
             }
             catch (Exception ex)
