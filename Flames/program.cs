@@ -28,19 +28,19 @@ namespace Flames.Cli {
         public static void Main(string[] args) {
             SetCurrentDirectory();
 
-            // If Flames_.dll is missing, a FileNotFoundException will get thrown for Flames dll
+            // If Harmony_.exe is missing, a FileNotFoundException will get thrown for Harmony executable
             try
             {
                 EnableCLIMode();
             } catch (FileNotFoundException) {
-                Console.WriteLine("Cannot start server as Flames_.dll is missing from " + Environment.CurrentDirectory);
+                Console.WriteLine("Cannot start server as Harmony_.exe is missing from " + Environment.CurrentDirectory);
                 Console.WriteLine("Download from " + Updater.UploadsURL);
                 Console.WriteLine("Press any key to exit...");
                 Console.ReadKey(true);
                 return;
             }
             
-            // separate method, in case Flames_.dll is missing
+            // separate method, in case Harmony_.exe is missing
             StartCLI();
         }
         
@@ -78,7 +78,7 @@ namespace Flames.Cli {
                 
                 EnableCLIMode();
                 Server.Start();
-                Console.Title = Colors.Strip(Server.Config.Name) + " - " + Colors.Strip(Server.ConfigSoftwareNameVersioned);
+                Console.Title = Colors.Strip(Server.Config.Name) + " - " + Colors.Strip(Server.SoftwareNameVersioned);
                 Console.CancelKeyPress += OnCancelKeyPress;
 
                 CheckNameVerification();
