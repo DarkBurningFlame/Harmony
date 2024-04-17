@@ -17,7 +17,6 @@ jobs:
         run: |
           msbuild Flames.sln /p:Configuration=Release /p:DefineConstants="CORE"
           cp -R bin/Release bin/Release_normal
-          rm bin/Release/Flames_.dll bin/Release/Flames_.pdb
           msbuild Flames/Flames.csproj /p:Configuration=Release /p:DefineConstants="CORE"
 
       - uses: ./.github/actions/notify_failure_harmony
