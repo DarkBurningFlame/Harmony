@@ -48,7 +48,7 @@ namespace Flames.SQL
             Server.CheckFile("sqlite3_x32.dll");
             Server.CheckFile("sqlite3_x64.dll");
 
-            // sqlite3.dll is the .DLL that Flames will actually load on Windows
+            // sqlite3.dll is the .DLL that Harmony will actually load on Windows
             try {
                 string dll = IntPtr.Size == 8 ? "sqlite3_x64.dll" : "sqlite3_x32.dll";
                 if (File.Exists(dll)) File.Copy(dll, "sqlite3.dll", true);
@@ -138,6 +138,6 @@ namespace Flames.SQL
     sealed class MCGSQLiteConnection : SQLiteConnection 
     {
         protected override bool ConnectionPooling { get { return Server.Config.DatabasePooling; } }
-        protected override string DBPath { get { return "Flames.db"; } }
+        protected override string DBPath { get { return "Harmony.db"; } }
     }
 }
