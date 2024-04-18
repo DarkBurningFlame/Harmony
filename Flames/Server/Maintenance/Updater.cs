@@ -77,16 +77,16 @@ namespace Flames
             {
                 try
                 {
-                    DeleteFiles("Flames_.update", "Flames.update", "FlamesCLI.update",
-                    "prev_Flames_.dll", "prev_Flames.exe", "prev_FlamesCLI.exe");
+                    DeleteFiles("Harmony_.update", "Harmony.update",
+                    "prev_Harmony_.exe", "prev_Harmony.exe");
                 }
                 catch
                 {
                 }
 
                 WebClient client = HttpUtil.CreateWebClient();
-                client.DownloadFile(dllURL, "Flames_.update");
-                client.DownloadFile(guiURL, "Flames.update");
+                client.DownloadFile(dllURL, "Harmony_.update");
+                client.DownloadFile(guiURL, "Harmony.update");
 
                 Level[] levels = LevelInfo.Loaded.Items;
                 foreach (Level lvl in levels)
@@ -102,13 +102,12 @@ namespace Flames
                 // Move current files to previous files (by moving instead of copying, 
                 //  can overwrite original the files without breaking the server)
 
-                AtomicIO.TryMove("Flames_.dll", "prev_Flames_.dll");
-                AtomicIO.TryMove("Flames.exe", "prev_Flames.exe");
-                AtomicIO.TryMove("FlamesCLI.exe", "prev_FlamesCLI.exe");
+                AtomicIO.TryMove("Harmony_.exe", "prev_Harmony_.exe");
+                AtomicIO.TryMove("Harmony.exe", "prev_Harmony.exe");
 
 
-                File.Move("Flames_.update", "Flames_.dll");
-                File.Move("Flames.update", "Flames.exe");
+                File.Move("Harmony_.update", "Harmony_.exe");
+                File.Move("Harmony.update", "Harmony.exe");
                 Server.Stop(true, "Updating server.");
             }
             catch (Exception ex)
