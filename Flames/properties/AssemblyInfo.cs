@@ -17,8 +17,8 @@
 */
 using System.Reflection;
 
-[assembly: AssemblyTitle("Flames")]
+[assembly: AssemblyTitle("Harmony")]
 [assembly: AssemblyDescription("ClassiCube Server Software")]
-[assembly: AssemblyProduct("Flames")]
+[assembly: AssemblyProduct("Harmony")]
 [assembly: AssemblyCopyright("Copyright © 2015-2022")]
 [assembly: AssemblyVersion(Flames.Server.InternalVersion)]
