@@ -306,7 +306,7 @@ namespace Flames.Scripting
                 AddReferences(path, args);
                 srcPaths[i] = path;
             }
-            args.ReferencedAssemblies.Add("Flames_.dll");
+            args.ReferencedAssemblies.Add("Harmony_.exe");
 
             PrepareArgs(args);
             InitCompiler();
