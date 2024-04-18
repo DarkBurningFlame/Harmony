@@ -52,6 +52,10 @@ namespace Flames
         public abstract string name { get; }
         /// <summary> The oldest version of Flames this plugin is compatible with. </summary>
         public virtual string Flames_Version { get { return null; } }
+        /// <summary> The oldest version of Harmony this plugin is compatible with. </summary>
+        public virtual string Harmony_Version { get { return null; } }
+        /// <summary> Work on backwards compatibility with MCGalaxy </summary>
+        public virtual string MCGalaxy_Version { get { return null; } }
         /// <summary> Work on backwards compatibility with other cores </summary>
         public virtual string SuperNova_Version { get { return null; } }
         /// <summary> Work on backwards compatibility with other cores </summary>
@@ -86,7 +90,7 @@ namespace Flames
         public static void Load(Plugin pl, bool auto) {
             string ver = pl.Flames_Version;
             if (!string.IsNullOrEmpty(ver) && new Version(ver) > new Version(Server.Version)) {
-                string msg = string.Format("Plugin '{0}' requires a more recent version of {1}!", pl.name, Server.Config.SoftwareName);
+                string msg = string.Format("Plugin '{0}' requires a more recent version of {1}!", pl.name, Server.SoftwareName);
                 throw new InvalidOperationException(msg);
             }
             
