@@ -46,10 +46,6 @@ namespace Flames
         public string OwnerName = "the owner";
         [ConfigBool("send-url", "Server", true)]
         public bool SendURL = true;
-        [ConfigString("softwarename", "Server", "&dH&1a&er&cm&6o&6n&0y", false)]
-        public string SoftwareName = "&dH&1a&er&cm&6o&6n&0y";
-        [ConfigString("softwareversion", "Server", "1.0.0.6", false)]
-        public string Version = "1.0.0.6";
         [ConfigString("server-logo", "Server", "https://files.catbox.moe/6uiix1.png")]
         public string ServerLogo = "https://files.catbox.moe/6uiix1.png";
         [ConfigBool("autoload", "Level", true)]
