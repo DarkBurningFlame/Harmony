@@ -26,7 +26,7 @@ namespace Flames.Levels.IO {
     //You MUST make it able to save and load as a new version other wise you will make old levels incompatible!
     public unsafe sealed class LvlExporter : IMapExporter 
     {
-        public override string Extension { get { return ".lvl"; } }
+        public override string Extension { get { return ".har"; } }
         
         const int bufferSize = 64 * 1024;
         public override void Write(Stream dst, Level lvl) {
