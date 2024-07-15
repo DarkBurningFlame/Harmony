@@ -25,7 +25,7 @@ namespace Flames
 
     public sealed class ServerConfig : EnvConfig 
     {
-        public const string Software = "&dH&1a&er&cm&6o&6n&0y";
+        public const string Software = "&4H&6a&5r&0m&7o&2n&dy &aDev";
         [ConfigString("server-name", "Server", "[" + Software + "] Default", false, " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~")]
         public string Name = "[" + Software + "] Default";
         [ConfigString("motd", "Server", "Welcome", false)]
@@ -44,10 +44,10 @@ namespace Flames
         public string DefaultRankName = "guest";
         [ConfigString("server-owner", "Server", "the owner")]
         public string OwnerName = "the owner";
-        [ConfigBool("send-url", "Server", true)]
-        public bool SendURL = true;
-        [ConfigString("server-logo", "Server", "https://files.catbox.moe/6uiix1.png")]
-        public string ServerLogo = "https://files.catbox.moe/6uiix1.png";
+        [ConfigBool("send-url", "Server", false)]
+        public bool SendURL = false;
+        [ConfigString("server-logo", "Server", "https://github.com/DarkBurningFlame/Harmony/blob/main/GUI/Harmony_full.png")]
+        public string ServerLogo = "https://github.com/DarkBurningFlame/Harmony/blob/main/GUI/Harmony_full.png";
         [ConfigBool("autoload", "Level", true)]
         public bool AutoLoadMaps = true;        
         /// <summary> true if maps sees server-wide chat, false if maps have level-only/isolated chat </summary>

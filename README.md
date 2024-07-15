@@ -1,12 +1,12 @@
-Flames is a fully featured and customizable **ClassiCube Server Software** based on [MCGalaxy 1.9.4.9](https://github.com/UnknownShadow200/MCGalaxy/tree/0a6b0da40b7986d31e52179ef915597fc815e2ee).
+Harmony is a fully featured and customizable **ClassiCube Server Software** based on [MCGalaxy 1.9.4.9](https://github.com/UnknownShadow200/MCGalaxy/tree/0a6b0da40b7986d31e52179ef915597fc815e2ee).
 
 **Setup**
 -----------------
-Download the latest Flames release [from here](https://github.com/RandomStrangers/Fire/tree/Flame/Uploads)
+Download the latest Harmony release [from here](https://github.com/DarkBurningFlame/Harmony/tree/main/Uploads)
 * Windows: You will need to install Net Framework 4.8 (Most already have this built-in)
 * Linux/macOS: You need to install the [Mono framework](https://www.mono-project.com).
 
-Run **Flames.exe** for a graphical interface, or run **FlamesCLI.exe** for command line only.
+Run **Harmony.exe** for a graphical interface, or run **Harmony_.exe** for command line only.
 
 Joining your server
 -----------------
@@ -58,7 +58,7 @@ Enter the server URL into the web browser
 
 
 ### Show on classicube.net server list
-Click **Settings** in the Flames window, then tick the **Public** checkbox. Then click **Save**.
+Click **Settings** in the Harmony window, then tick the **Public** checkbox. Then click **Save**.
 
 This makes your server appear in the server list on classicube.net and in the ClassiCube client.
 
@@ -75,7 +75,7 @@ Compiling
 
 Copyright/License
 -----------------
-See LICENSE for Flames license, and license.txt for code used from other software.
+See LICENSE for Harmony license, and license.txt for code used from other software.
 
 Docker support(MCGalaxy)
 -----------------

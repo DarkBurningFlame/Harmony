@@ -203,7 +203,7 @@ namespace Flames.Platform
 
         public override void Init() {
             base.Init();
-#if F_STANDALONE
+#if H_STANDALONE
             if (!Directory.Exists("certs")) return;
 
             // by default mono looks in these directories for SSL/TLS certificates:
@@ -259,7 +259,7 @@ namespace Flames.Platform
         protected override void RestartInPlace() {
             try {
                 // try to restart using process's original command line arguments so that they are preserved
-                // e.g. for "mono --debug FlamesCLI.exe"
+                // e.g. for "mono --debug HarmonyCLI.exe"
                 string exe    = GetProcessExePath();
                 string[] args = GetProcessCommandLineArgs();
                 execvp(exe, args);

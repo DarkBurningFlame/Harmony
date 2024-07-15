@@ -1,8 +1,8 @@
-Looking for the files to run Flames? 
+Looking for the files to run Harmony? 
 You probably want to go to the Releases page and get the latest zip from there.
 
 However, you can still download the required files from here. You need these files:
-Flames.exe, FlamesCLI.exe, Flames_.dll
+Harmony.exe, Harmony_.exe
 
 The dev file is a special form of Flames being developed to have backwards compatibility with the other cores: 
 [RandomStrangers](https://github.com/RandomStrangers/RandomStrangers), 

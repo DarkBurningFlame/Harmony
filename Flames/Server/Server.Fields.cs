@@ -39,9 +39,9 @@ namespace Flames
         public static PlayerMetaList RankInfo = new PlayerMetaList("text/rankinfo.txt");
         public static PlayerMetaList Notes = new PlayerMetaList("text/notes.txt");
         /// <summary> *** DO NOT USE THIS! *** Use VersionString, as this field is a constant and is inlined if used. </summary>
-        public const string InternalVersion = "0.0.6.1";
+        public const string InternalVersion = "0.0.6.2";
         public static string Version { get { return InternalVersion; } }
-        public static string SoftwareName = "&dH&1a&er&cm&6o&6n&0y &4Dev";
+        public static string SoftwareName = "&4H&6a&5r&0m&7o&2n&dy &aDev";
         static string fullName;
         public static string SoftwareNameVersioned {
             // By default, if SoftwareName gets externally changed, that is reflected in SoftwareNameVersioned too
@@ -57,13 +57,14 @@ namespace Flames
         public static PlayerList ignored, hidden, agreed, vip, noEmotes, lockdown;
         public static PlayerExtList models, skins, reach, rotations, modelScales;
         public static PlayerExtList bannedIP, frozen, muted, tempBans, tempRanks;
-        
-        public static readonly List<string> Devs = new List<string>() { 
-            "DarkBurningFlame", "BurningFlame", "SuperNova", "DeadNova", 
-            "HyperNova", "RandomStranger05", "GoldenSparks", "AurumStellae", 
-            "sethbatman05", "sethbatman2005", "jackstage1", "Pattykaki45", 
-            "jaketheidiot", "RandomStrangers", "ArgenteaeLunae", "Argenteae", 
-            "HarmonyNetwork", "onedez"};
+
+        public static readonly List<string> Devs = new List<string>() {
+            "DarkBurningFlame", "BurningFlame", "SuperNova", "DeadNova",
+            "HyperNova", "RandomStranger05", "GoldenSparks", "AurumStellae",
+            "sethbatman05", "sethbatman2005", "jackstage1", "Pattykaki45",
+            "jaketheidiot", "RandomStrangers", "ArgenteaeLunae", "Argenteae",
+            "HarmonyNetwork" , "krowteNynomraH", "UserTaken123", "UserNotFree",
+            "onedez"};
         public static readonly List<string> Opstats = new List<string>() { "ban", "tempban", "xban", "banip", "kick", "warn", "mute", "freeze", "setrank" };
 
         public static Level mainLevel;

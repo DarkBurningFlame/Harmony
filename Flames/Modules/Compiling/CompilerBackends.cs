@@ -94,8 +94,8 @@ namespace Flames.Modules.Compiling
 
         public static ICompilerErrors Compile(string[] srcPaths, string dstPath, List<string> referenced) {         
             string args    = GetCommandLineArguments(srcPaths, dstPath, referenced);
-            string netPath = GetBinaryFile("F_DOTNET_PATH", "'dotnet' executable - e.g. /home/test/.dotnet/dotnet");
-            string cscPath = GetBinaryFile("F_COMPILER_PATH", "'csc.dll' file - e.g. /home/test/.dotnet/sdk/6.0.300/Roslyn/bincore/csc.dll");
+            string netPath = GetBinaryFile("H_DOTNET_PATH", "'dotnet' executable - e.g. /home/test/.dotnet/dotnet");
+            string cscPath = GetBinaryFile("H_COMPILER_PATH", "'csc.dll' file - e.g. /home/test/.dotnet/sdk/6.0.300/Roslyn/bincore/csc.dll");
 
             ICompilerErrors errors = new ICompilerErrors();
             List<string> output    = new List<string>();

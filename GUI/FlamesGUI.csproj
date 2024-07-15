@@ -18,7 +18,7 @@
     <NoStdLib>False</NoStdLib>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
     <StartupObject>Flames.Gui.Program</StartupObject>
-    <ApplicationIcon>Flames.ico</ApplicationIcon>
+    <ApplicationIcon>Harmony_full.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>

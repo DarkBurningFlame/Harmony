@@ -37,7 +37,7 @@ namespace Flames.SQL
         public override string EngineName { get { return "SQLite"; } }
         
         public override ISqlConnection CreateConnection() {
-            return new MCGSQLiteConnection();
+            return new HSQLiteConnection();
         }
 
 
@@ -135,7 +135,7 @@ namespace Flames.SQL
         }
     }
     
-    sealed class MCGSQLiteConnection : SQLiteConnection 
+    sealed class HSQLiteConnection : SQLiteConnection 
     {
         protected override bool ConnectionPooling { get { return Server.Config.DatabasePooling; } }
         protected override string DBPath { get { return "Harmony.db"; } }

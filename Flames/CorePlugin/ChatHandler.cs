@@ -49,7 +49,7 @@ namespace Flames.Core
             {
                 p.cancelcommand = true;
                 if (!MessageCmd.CanSpeak(p, cmd)) return;
-                int used = p.Extras.GetInt("F_PONY");
+                int used = p.Extras.GetInt("H_PONY");
 
                 if (used < 2)
                 {
@@ -61,7 +61,7 @@ namespace Flames.Core
                     p.Message("You have used this command 2 times. You cannot use it anymore! Sorry, Brony!");
                 }
 
-                p.Extras["F_PONY"] = used + 1;
+                p.Extras["H_PONY"] = used + 1;
             }
             else if (cmd.ToLower() == "rainbowdashlikescoolthings")
             {
@@ -79,18 +79,18 @@ namespace Flames.Core
                     p.Message("You have used this command 2 times. You cannot use it anymore! Sorry, Brony!");
                 }
 
-                p.Extras["F_RD"] = used + 1;
+                p.Extras["H_RD"] = used + 1;
             }
             if (!Server.Config.MCLawlSecretCommands) return;
             if (cmd.ToLower() == "care")
             {
                 p.cancelcommand = true;
-                int used = p.Extras.GetInt("F_CARE");
+                int used = p.Extras.GetInt("H_CARE");
 
                 if (used < 2)
                 {
-                    Chat.MessageFrom(p, "λNICK is now loved by Sparkie with all her heart. ^w^");
-                    p.Message("Sparkie now loves you with all her heart. ^w^");
+                    Chat.MessageFrom(p, "λNICK is now loved by Harmony with all her heart. ^w^");
+                    p.Message("Harmony now loves you with all her heart. ^w^");
                     Logger.Log(LogType.CommandUsage, "{0} used /{1}", p.name, cmd);
                 }
                 else
@@ -98,16 +98,16 @@ namespace Flames.Core
                     p.Message("You have used this command 2 times. You cannot use it anymore!");
                 }
 
-                p.Extras["F_CARE"] = used + 1;
+                p.Extras["H_CARE"] = used + 1;
             }
             else if (cmd.ToLower() == "facepalm")
             {
                 p.cancelcommand = true;
-                int used = p.Extras.GetInt("F_FACEPALM");
+                int used = p.Extras.GetInt("H_FACEPALM");
 
                 if (used < 2)
                 {
-                    p.Message("Random Strangers' bot army just simultaneously facepalm'd at your use of this command.");
+                    p.Message("Harmony' bot army just simultaneously facepalm'd at your use of this command.");
                     Logger.Log(LogType.CommandUsage, "{0} used /{1}", p.name, cmd);
                 }
                 else
@@ -115,7 +115,7 @@ namespace Flames.Core
                     p.Message("You have used this command 2 times. You cannot use it anymore!");
                 }
 
-                p.Extras["F_FACEPALM"] = used + 1;
+                p.Extras["H_FACEPALM"] = used + 1;
             }
         }
     }

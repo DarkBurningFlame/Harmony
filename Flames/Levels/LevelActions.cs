@@ -368,7 +368,7 @@ namespace Flames
             lvl.IsMuseum = true;
             
             Level.LoadMetadata(lvl);
-            lvl.BuildAccess.Min = LevelPermission.Flames;
+            lvl.BuildAccess.Min = LevelPermission.Null;
             lvl.Config.Physics = 0;
             return lvl;
         }
