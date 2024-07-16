@@ -29,6 +29,7 @@ namespace Flames.Modules.Compiling
         }
         
         protected override void CompileCommand(Player p, string[] paths, ICompiler compiler) {
+            if (compiler == null) { compiler = new CSCompiler(); }
             foreach (string cmd in paths)
             {
                 CompilerOperations.CreateCommand(p, cmd, compiler);

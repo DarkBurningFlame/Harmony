@@ -38,10 +38,12 @@ namespace Flames
         {
             p.Message("No help is available for this simple plugin.");
         }
+        /// <summary> Name of the plugin. </summary>
+
+
 
         /// <summary> Name of the plugin. </summary>
-        public virtual string name { get { return ""; } }
-        public virtual string Name { get { return ""; } }
+        public abstract string Name { get; }
 
         /// <summary> Oldest version of Flames this plugin is compatible with. </summary>
         public virtual string Flames_Version { get { return null; } }
@@ -56,7 +58,6 @@ namespace Flames
 
         /// <summary> The creator/author of this plugin. (Your name) </summary>
         public virtual string Creator { get { return ""; } }
-        public virtual string creator { get { return ""; } }
 
         /// <summary> Whether or not to auto load this plugin on server startup. </summary>
         public virtual bool LoadAtStartup { get { return true; } }
@@ -77,14 +78,14 @@ namespace Flames
                 }
                 else
                 {
-                    Logger.Log(LogType.SystemActivity, "Simple plugin {0} was not loaded, you can load it with /psload", p.name);
+                    Logger.Log(LogType.SystemActivity, "Simple plugin {0} was not loaded, you can load it with /psload", p.Name);
                 }
 
                 return true;
             }
             catch (Exception ex)
             {
-                Logger.LogError("Error loading simple plugin " + p.name, ex);
+                Logger.LogError("Error loading simple plugin " + p.Name, ex);
                 if (!string.IsNullOrEmpty(p.Creator)) Logger.Log(LogType.Warning, "You can go bug {0} about it.", p.Creator);
                 return false;
             }
@@ -96,11 +97,11 @@ namespace Flames
             try
             {
                 p.Unload(auto);
-                Logger.Log(LogType.SystemActivity, "Simple plugin {0} was unloaded.", p.name);
+                Logger.Log(LogType.SystemActivity, "Simple plugin {0} was unloaded.", p.Name);
             }
             catch (Exception ex)
             {
-                Logger.LogError("Error unloading simple plugin " + p.name, ex);
+                Logger.LogError("Error unloading simple plugin " + p.Name, ex);
                 success = false;
             }
 
