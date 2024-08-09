@@ -29,6 +29,12 @@ namespace Flames.Commands.Chatting
         }
 
         public override void Use(Player p, string message, CommandData data) {
+            if (p.IsSuper && string.IsNullOrEmpty(message))
+            {
+                p.Message("&T/Ping [player] &H- Outputs ping details for a player.");
+                p.Message("&T/Ping all &H- Outputs ping details for all players.");
+                p.Message("&cNOTE: &HNot all clients support measuring ping.");
+            }
             if (!message.CaselessEq("all")) {
                 if (message.Length == 0) message = p.name;
 
