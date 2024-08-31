@@ -46,6 +46,8 @@ namespace Flames
         public string OwnerName = "the owner";
         [ConfigBool("send-url", "Server", false)]
         public bool SendURL = false;
+        [ConfigBool("say-hello", "Server", false)]
+        public bool SayHello = false;
         [ConfigString("server-logo", "Server", "https://github.com/DarkBurningFlame/Harmony/blob/main/GUI/Harmony_full.png")]
         public string ServerLogo = "https://github.com/DarkBurningFlame/Harmony/blob/main/GUI/Harmony_full.png";
         [ConfigBool("autoload", "Level", true)]

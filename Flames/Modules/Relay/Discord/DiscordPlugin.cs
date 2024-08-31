@@ -62,6 +62,7 @@ namespace Flames.Modules.Relay.Discord
         static ConfigElement[] cfg;
         
         public void Load() {
+           Server.EnsureDirectoryExists("text/discord");
             // create default config file
             if (!File.Exists(PROPS_PATH)) Save();
 
@@ -74,7 +75,7 @@ namespace Flames.Modules.Relay.Discord
             
             using (StreamWriter w = new StreamWriter(PROPS_PATH)) {
                 w.WriteLine("# Discord relay bot configuration");
-                w.WriteLine("# See " + Updater.WikiURL + "/wiki/Discord-relay-bot/");
+                w.WriteLine("# See " + Updater.WikiURL + "Discord-relay-bot/");
                 w.WriteLine();
                 ConfigElement.Serialise(cfg, w, this);
             }

@@ -44,6 +44,8 @@ namespace Flames
 
         /// <summary> Name of the plugin. </summary>
         public abstract string Name { get; }
+        /// <summary> Work on backwards compatibility with MCGalaxy </summary>
+        public virtual string MCGalaxy_Version { get { return null; } }
 
         /// <summary> Oldest version of Flames this plugin is compatible with. </summary>
         public virtual string Flames_Version { get { return null; } }

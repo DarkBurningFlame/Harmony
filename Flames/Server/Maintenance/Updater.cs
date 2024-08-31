@@ -32,7 +32,7 @@ namespace Flames
         public const string UploadsURL = "https://github.com/DarkBurningFlame/Harmony/tree/main/Uploads";
         public const string UpdatesURL = "https://github.com/DarkBurningFlame/Harmony/raw/main/Uploads/";
         public const string SQLiteURL = "https://github.com/DarkBurningFlame/Harmony/raw/main/Uploads/sqlite3.dll";
-        public static string WikiURL = "https://github.com/UnknownShadow200/MCGalaxy";
+        public static string WikiURL = "https://github.com/UnknownShadow200/MCGalaxy/wiki/";
         const string CurrentVersionURL = UpdatesURL + "dev.txt";
         const string dllURL = UpdatesURL + "Harmony_.exe";
         const string guiURL = UpdatesURL + "Harmony.exe";
