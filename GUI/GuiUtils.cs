@@ -95,7 +95,25 @@ namespace Flames.Gui
             rgb.B = Linear(c.B);
             return rgb;
         }
-        
+        /// <summary> Returns black or white color depending on brightness of the given color </summary>
+        public static Color CalcBackgroundColorHSV(Color color)
+        {
+            // https://stackoverflow.com/questions/596216/formula-to-determine-perceived-brightness-of-rgb-color
+            HSV c = sHSVToLinear(color);
+            double L = 0.2126 * c.H + 0.7152 * c.S + 0.0722 * c.V;
+            return L > 0.179 ? Color.Black : Color.White;
+        }
+
+
+        /// <summary> Converts gamma corrected RGB to linear RGB </summary>
+        static HSV sHSVToLinear(Color c)
+        {
+            HSV hsv;
+            hsv.H = Linear(c.R);
+            hsv.S = Linear(c.G);
+            hsv.V = Linear(c.B);
+            return hsv;
+        }
         /// <summary> Converts gamma corrected value to linear value </summary>
         static double Linear(double c) {
             c /= 255.0;

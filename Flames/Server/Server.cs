@@ -91,7 +91,7 @@ namespace Flames
             ForceEnableTLS();
 
             SQLiteBackend.Instance.LoadDependencies();
-#if !F_STANDALONE
+#if !H_STANDALONE
             MySQLBackend.Instance.LoadDependencies();
 #endif
 
@@ -144,7 +144,7 @@ namespace Flames
             EnsureDirectoryExists("extra/bots");
             EnsureDirectoryExists(Paths.ImportsDir);
             EnsureDirectoryExists("blockdefs");
-#if !F_STANDALONE
+#if !H_STANDALONE
             EnsureDirectoryExists(Modules.Compiling.ICompiler.COMMANDS_SOURCE_DIR); // TODO move to compiling module
 #endif
         }
@@ -191,7 +191,7 @@ namespace Flames
         static readonly object stopLock = new object();
         static volatile Thread stopThread;
         public static Thread Stop(bool restart, string msg) {
-            if (Server.Config.SayBye)
+            if (Config.SayBye)
             {
                 Command.Find("say").Use(Player.Flame, Colors.Strip(SoftwareNameVersioned) + " &Sshutting down!");
             }
@@ -274,7 +274,7 @@ namespace Flames
             return RestartPath;
 #else
             // NET core/5/6 executables tend to use the following structure:
-            //   FlamesCLI_core --> FlamesCLI_core.dll
+            //   HarmonyCLI_core --> HarmonyCLI_core.dll
             // in this case, 'RestartPath' will include '.dll' since this file
             //  is actually the managed assembly, but we need to remove '.dll'
             //   as the actual executable which must be started is the non .dll file

@@ -106,7 +106,7 @@ namespace Flames {
             new ChatToken("$softwarenameversioned", "Software name and its version", TokenSoftwareNameVersioned),
             new ChatToken("$softwarenameversion", "Software name and its version", TokenSoftwareNameVersioned),
         };
-        static string TokenHost(Player p) { return Server.Config.FlameState; }
+        static string TokenHost(Player p) { return Server.Config.CoreState; }
         static string TokenSoftware (Player p) { return Server.SoftwareName; }
         static string TokenVersion(Player p) { return Server.Version; }
         static string TokenSoftwareNameVersioned(Player p) { return Server.SoftwareName +

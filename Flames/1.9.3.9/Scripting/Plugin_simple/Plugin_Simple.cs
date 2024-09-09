@@ -48,7 +48,6 @@ namespace Flames
         /// <summary> Work on backwards compatibility with MCGalaxy </summary>
         public virtual string MCGalaxy_Version { get { return null; } }
 
-#if CORE
         /// <summary> Work on backwards compatibility with other cores </summary>
         public virtual string SuperNova_Version { get { return null; } }
         /// <summary> Work on backwards compatibility with other cores </summary>
@@ -57,7 +56,6 @@ namespace Flames
         public virtual string GoldenSparks_Version { get { return null; } }
         /// <summary> Work on backwards compatibility with other cores </summary>
         public virtual string RandomStrangers_Version { get { return null; } }
-#endif
 
         /// <summary> The creator/author of this plugin. (Your name) </summary>
         public virtual string Creator { get { return ""; } }
