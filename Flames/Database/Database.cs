@@ -211,8 +211,8 @@ namespace Flames.SQL
             return 
                 c > ' '   && c != '"' && c != '%' && c != '&'  &&
                 c != '\'' && c != '*' && c != '/' && c != ':'  &&
-                c != '<'  && c != '>' && c != '?' && c != '\\' &&
-                c != '`'  && c != '|' && c <= '~';
+                c != '<'  && c != '>' && c != '`' && c != '\\' &&
+                c != '|'  && c <= '~';
         }
         
         internal static void ValidateName(string table) {

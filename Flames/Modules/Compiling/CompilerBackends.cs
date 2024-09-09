@@ -29,7 +29,7 @@
 // 
 // THE SOFTWARE IS PROVIDED AS IS, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#if !H_STANDALONE
+#if !F_STANDALONE
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 
@@ -59,11 +59,16 @@ namespace Flames.Modules.Compiling
             if (compiler != null) return;
             compiler = CodeDomProvider.CreateProvider(language);
             if (compiler != null) return;
-                
             Logger.Log(LogType.Warning,
                        "WARNING: {0} compiler is missing, you will be unable to compile {1} files.",
                        c.FullName, c.FileExtension);
                 // TODO: Should we log "You must have .net developer tools. (You need a visual studio)" ?
+                //Should only log this for Visual Basic.
+                if (c.FileExtension == "vb" && Server.runningOnMono == true)
+                {
+                    Logger.Log(LogType.Warning,
+                       "WARNING: Visual Basic compiler is missing, you will be unable to compile .vb files.");
+                }
         }
 
         public static ICompilerErrors Compile(CompilerParameters args, string[] srcPaths, CodeDomProvider compiler) {
@@ -94,8 +99,8 @@ namespace Flames.Modules.Compiling
 
         public static ICompilerErrors Compile(string[] srcPaths, string dstPath, List<string> referenced) {         
             string args    = GetCommandLineArguments(srcPaths, dstPath, referenced);
-            string netPath = GetBinaryFile("H_DOTNET_PATH", "'dotnet' executable - e.g. /home/test/.dotnet/dotnet");
-            string cscPath = GetBinaryFile("H_COMPILER_PATH", "'csc.dll' file - e.g. /home/test/.dotnet/sdk/6.0.300/Roslyn/bincore/csc.dll");
+            string netPath = GetBinaryFile("F_DOTNET_PATH", "'dotnet' executable - e.g. /home/test/.dotnet/dotnet");
+            string cscPath = GetBinaryFile("F_COMPILER_PATH", "'csc.dll' file - e.g. /home/test/.dotnet/sdk/6.0.300/Roslyn/bincore/csc.dll");
 
             ICompilerErrors errors = new ICompilerErrors();
             List<string> output    = new List<string>();

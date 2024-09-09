@@ -17,7 +17,7 @@
     or implied. See the Licenses for the specific language governing
     permissions and limitations under the Licenses.
  */
-#if !H_STANDALONE
+#if !F_STANDALONE
 using System.Collections.Generic;
 using System.IO;
 using System.Text;

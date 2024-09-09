@@ -65,9 +65,16 @@
     <Reference Include="MySql.Data">
       <HintPath>..\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="1.9.3.9\MultiPageOutput.cs" />
@@ -349,8 +356,9 @@
     <Compile Include="Commands\World\CmdUnload.cs" />
     <Compile Include="Commands\World\PermissionCmds.cs" />
     <Compile Include="Config\ConfigAttribute.cs" />
+    <Compile Include="Config\UnsignedNumberAttributes.cs" />
     <Compile Include="Config\JSON.cs" />
-    <Compile Include="Config\NumberAttributes.cs" />
+    <Compile Include="Config\SignedNumberAttributes.cs" />
     <Compile Include="Config\OtherAttributes.cs" />
     <Compile Include="Config\ConfigElement.cs" />
     <Compile Include="Config\Permissions\BlockPerms.cs" />
@@ -730,7 +738,9 @@
     </Content>
     <Content Include="Harmony_full.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Testing\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

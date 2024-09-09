@@ -15,7 +15,7 @@
     or implied. See the Licenses for the specific language governing
     permissions and limitations under the Licenses.
 */
-#if !H_STANDALONE
+#if !F_STANDALONE
 using Flames.Commands;
 using Flames.Scripting;
 

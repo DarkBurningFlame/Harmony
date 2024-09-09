@@ -41,12 +41,12 @@ namespace Flames.Core
                 Server.Background.QueueOnce(SayHello, null, TimeSpan.FromSeconds(10));
             }
         }
-        static void SayHello(SchedulerTask task)
+       public static void SayHello(SchedulerTask task)
         {
             Command.Find("say").Use(Player.Flame, Server.SoftwareNameVersioned + " &Sonline!");
             Logger.Log(LogType.SystemActivity, "Hello World!");
         }
-        void SayURL(SchedulerTask task)
+        public static void SayURL(SchedulerTask task)
         {
             string file = "./text/externalurl.txt";
             string contents = File.ReadAllText(file);

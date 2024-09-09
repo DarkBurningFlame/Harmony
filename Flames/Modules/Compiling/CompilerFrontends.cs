@@ -17,9 +17,7 @@
     or implied. See the Licenses for the specific language governing
     permissions and limitations under the Licenses.
  */
-#if !H_STANDALONE
-using Flames.Scripting;
-using System;
+#if !F_STANDALONE
 using System.CodeDom.Compiler;
 
 namespace Flames.Modules.Compiling
@@ -234,7 +232,7 @@ End Class
 
 
 ";
-                
+
             }
         }
 
@@ -247,14 +245,14 @@ Imports System
 
 Namespace Flames
 \tPublic Class {0}
-\t\tInherits Plugin_Simple
+\t\tInherits Plugin
 
-\t\tPublic Overrides ReadOnly Property Name() As String
+\t\tPublic Overrides ReadOnly Property name() As String
 \t\t\tGet
 \t\t\t\tReturn ""{0}""
 \t\t\tEnd Get
 \t\t End Property
-\t\tPublic Overrides ReadOnly Property Creator() As String
+\t\tPublic Overrides ReadOnly Property creator() As String
 \t\t\tGet
 \t\t\t\tReturn ""{1}""
 \t\t\tEnd Get
@@ -276,5 +274,6 @@ End Namespace";
             }
         }
     }
+
 }
 #endif

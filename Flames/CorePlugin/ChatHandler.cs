@@ -16,6 +16,7 @@
     permissions and limitations under the Licenses.
  */
 using Flames.Commands.Chatting;
+using Flames.Maths;
 
 namespace Flames.Core
 {
@@ -40,16 +41,20 @@ namespace Flames.Core
 
             if (scope != ChatScope.PM) Logger.Log(logType, msg);
         }
-
+        // Need to find a better way to do this
         public static void HandleCommand(Player p, string cmd, string args, CommandData data)
         {
             // Really clunky design, but it works
-            Level lvl = new Level();
+            Level lvl = p.level;
             Command command = Command.Find(cmd);
-            if (lvl.Config.Drawing && command.IsDrawingCmd)
+            bool IsDrawingCmd = command.type.CaselessEq(CommandTypes.Building);
+
+            if (IsDrawingCmd && !lvl.Config.Drawing)
             {
                 p.Message("Drawing commands are turned off on this map.");
                 p.cancelcommand = true;
+                Vec3S32 pos = p.Pos.BlockCoords;
+                p.RevertBlock((ushort)pos.X, (ushort)pos.Y, (ushort)pos.Z);
             }
             if (!Server.Config.CoreSecretCommands) return;
             // DO NOT REMOVE THE TWO COMMANDS BELOW, /PONY AND /RAINBOWDASHLIKESCOOLTHINGS. -EricKilla
@@ -57,7 +62,7 @@ namespace Flames.Core
             {
                 p.cancelcommand = true;
                 if (!MessageCmd.CanSpeak(p, cmd)) return;
-                int used = p.Extras.GetInt("H_PONY");
+                int used = p.Extras.GetInt("F_PONY");
 
                 if (used < 2)
                 {
@@ -69,7 +74,7 @@ namespace Flames.Core
                     p.Message("You have used this command 2 times. You cannot use it anymore! Sorry, Brony!");
                 }
 
-                p.Extras["H_PONY"] = used + 1;
+                p.Extras["F_PONY"] = used + 1;
             }
             else if (cmd.ToLower() == "rainbowdashlikescoolthings")
             {
@@ -87,18 +92,18 @@ namespace Flames.Core
                     p.Message("You have used this command 2 times. You cannot use it anymore! Sorry, Brony!");
                 }
 
-                p.Extras["H_RD"] = used + 1;
+                p.Extras["F_RD"] = used + 1;
             }
             if (!Server.Config.MCLawlSecretCommands) return;
             if (cmd.ToLower() == "care")
             {
                 p.cancelcommand = true;
-                int used = p.Extras.GetInt("H_CARE");
+                int used = p.Extras.GetInt("F_CARE");
 
                 if (used < 2)
                 {
                     Chat.MessageFrom(p, "λNICK is now loved by Harmony with all her heart.");
-                    p.Message("Harmony now loves you with all her heart.");
+                    p.Message("Harmony now loves you with all her heart. ");
                     Logger.Log(LogType.CommandUsage, "{0} used /{1}", p.name, cmd);
                 }
                 else
@@ -106,12 +111,12 @@ namespace Flames.Core
                     p.Message("You have used this command 2 times. You cannot use it anymore!");
                 }
 
-                p.Extras["H_CARE"] = used + 1;
+                p.Extras["F_CARE"] = used + 1;
             }
             else if (cmd.ToLower() == "facepalm")
             {
                 p.cancelcommand = true;
-                int used = p.Extras.GetInt("H_FACEPALM");
+                int used = p.Extras.GetInt("F_FACEPALM");
 
                 if (used < 2)
                 {
@@ -123,7 +128,7 @@ namespace Flames.Core
                     p.Message("You have used this command 2 times. You cannot use it anymore!");
                 }
 
-                p.Extras["H_FACEPALM"] = used + 1;
+                p.Extras["F_FACEPALM"] = used + 1;
             }
         }
     }

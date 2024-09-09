@@ -91,7 +91,7 @@ namespace Flames
             ForceEnableTLS();
 
             SQLiteBackend.Instance.LoadDependencies();
-#if !H_STANDALONE
+#if !F_STANDALONE
             MySQLBackend.Instance.LoadDependencies();
 #endif
 
@@ -119,8 +119,6 @@ namespace Flames
                                    null, TimeSpan.FromMinutes(5));
 
         }
-        
-
     static void ForceEnableTLS() {
             // Force enable TLS 1.1/1.2, otherwise checking for updates on Github doesn't work
             try { ServicePointManager.SecurityProtocol |= (SecurityProtocolType)0x300; } catch { }
@@ -146,7 +144,7 @@ namespace Flames
             EnsureDirectoryExists("extra/bots");
             EnsureDirectoryExists(Paths.ImportsDir);
             EnsureDirectoryExists("blockdefs");
-#if !H_STANDALONE
+#if !F_STANDALONE
             EnsureDirectoryExists(Modules.Compiling.ICompiler.COMMANDS_SOURCE_DIR); // TODO move to compiling module
 #endif
         }
@@ -181,20 +179,23 @@ namespace Flames
             ChatTokens.LoadCustom();
             SrvProperties.FixupOldPerms();
             CpeExtension.LoadDisabledList();
-            
+
             TextFile announcementsFile = TextFile.Files["Announcements"];
             announcementsFile.EnsureExists();
             announcements = announcementsFile.GetText();
             
             OnConfigUpdatedEvent.Call();
         }
-        
+
 
         static readonly object stopLock = new object();
         static volatile Thread stopThread;
         public static Thread Stop(bool restart, string msg) {
-            Command.Find("say").Use(Player.Flame, Colors.Strip(SoftwareNameVersioned) + " &Sshutting down!");
-            Logger.Log(LogType.Warning, "&fServer is shutting down!");
+            if (Server.Config.SayBye)
+            {
+                Command.Find("say").Use(Player.Flame, Colors.Strip(SoftwareNameVersioned) + " &Sshutting down!");
+            }
+                Logger.Log(LogType.Warning, "&fServer is shutting down!");
             shuttingDown = true;
             lock (stopLock) {
                 if (stopThread != null) return stopThread;
@@ -273,7 +274,7 @@ namespace Flames
             return RestartPath;
 #else
             // NET core/5/6 executables tend to use the following structure:
-            //   HarmonyCLI_core --> HarmonyCLI_core.dll
+            //   FlamesCLI_core --> FlamesCLI_core.dll
             // in this case, 'RestartPath' will include '.dll' since this file
             //  is actually the managed assembly, but we need to remove '.dll'
             //   as the actual executable which must be started is the non .dll file
@@ -283,7 +284,7 @@ namespace Flames
 #endif
         }
 
-        static bool checkedOnMono, runningOnMono;
+        public static bool checkedOnMono, runningOnMono;
         public static bool RunningOnMono() {
             if (!checkedOnMono) {
                 runningOnMono = Type.GetType("Mono.Runtime") != null;
