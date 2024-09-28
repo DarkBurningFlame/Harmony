@@ -60,7 +60,7 @@ namespace Flames.Gui
 Trying to mix two versions is unsupported - you may experience issues";
             string msg = string.Format(fmt, Server.SoftwareName, 
                                        gui_version, AssemblyFile(typeof(Window), "Harmony.exe"),
-                                       dll_version, AssemblyFile(typeof(Server), "Harmony._exe"));
+                                       dll_version, AssemblyFile(typeof(Server), "Harmony_.exe"));
             RunAsync(() => Popup.Warning(msg));
         }
         

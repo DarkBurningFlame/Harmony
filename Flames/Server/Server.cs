@@ -101,10 +101,9 @@ namespace Flames
             LoadAllSettings(true);
             InitDatabase();
             Economy.LoadDatabase();
-
+            Critical.QueueOnce(LoadAllPlugins);
+            Critical.QueueOnce(LoadAllSimplePlugins);
             Background.QueueOnce(LoadMainLevel);
-            Background.QueueOnce(LoadAllPlugins);
-            Background.QueueOnce(LoadAllSimplePlugins);
             Background.QueueOnce(LoadAutoloadMaps);
             Background.QueueOnce(UpgradeTasks.UpgradeOldTempranks);
             Background.QueueOnce(UpgradeTasks.UpgradeDBTimeSpent);
@@ -341,8 +340,14 @@ namespace Flames
             Logger.Log(LogType.BackgroundActivity, "GC performed in {0:F2} ms (tracking {1:F2} KB, freed {2:F2} KB)",
                        sw.Elapsed.TotalMilliseconds, end / 1024.0, deltaKB);
         }
-        
-        
+        public static void StartThread(out Thread thread, string name, ThreadStart threadFunc)
+        {
+            thread = new Thread(threadFunc);
+
+            try { thread.Name = name; } catch { }
+            thread.Start();
+        }
+
         // only want ASCII alphanumerical characters for salt
         static bool AcceptableSaltChar(char c) {
             return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') 

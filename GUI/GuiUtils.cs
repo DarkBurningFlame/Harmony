@@ -52,8 +52,8 @@ namespace Flames.Gui
     }
     
     public static class GuiUtils 
-    {   
-        /// <summary> Flames window icon (shared) </summary>
+    {
+        /// <summary> Harmony window icon (shared) </summary>
         public static Icon WinIcon;
         
         public static void SetIcon(Form form) {

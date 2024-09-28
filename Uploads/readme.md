@@ -9,5 +9,5 @@ This version of Flames is being developed to have backwards compatibility with t
 [SuperNova](https://github.com/RandomStrangers/SuperNova), 
 [RelaySoftware](https://github.com/RandomStrangers/RelaySoftware), 
 [DeadNova](https://github.com/RandomStrangers/DeadNova), and
-[GoldenSparks](https://github.com/GoldenSparks/Sparkie). 
+[GoldenSparks](https://github.com/RandomStrangers/Sparkie). 
 This is still in development! Plugins from other cores will not work yet!

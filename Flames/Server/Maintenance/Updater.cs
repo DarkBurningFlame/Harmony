@@ -31,7 +31,7 @@ namespace Flames
         public const string BaseURL = "https://github.com/DarkBurningFlame/Harmony/blob/main/";
         public const string UploadsURL = "https://github.com/DarkBurningFlame/Harmony/tree/main/Uploads";
         public const string UpdatesURL = "https://github.com/DarkBurningFlame/Harmony/raw/main/Uploads/";
-        public static string WikiURL = "https://github.com/UnknownShadow200/MCGalaxy/wiki/";
+        public static string WikiURL = "https://github.com/ClassiCube/MCGalaxy/wiki/";
         const string CurrentVersionURL = UpdatesURL + "dev.txt";
         const string guiURL = UpdatesURL + "Harmony.exe";
         const string cliURL = UpdatesURL + "Harmony_.exe";

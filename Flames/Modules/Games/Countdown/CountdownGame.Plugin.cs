@@ -44,8 +44,8 @@ namespace Flames.Modules.Games.Countdown
             if (!RoundInProgress || !FreezeMode) return;
             if (!Remaining.Contains(p)) return;
             
-            int freezeX = p.Extras.GetInt("F_CD_X");
-            int freezeZ = p.Extras.GetInt("F_CD_Z");
+            int freezeX = p.Extras.GetInt("H_CD_X");
+            int freezeZ = p.Extras.GetInt("H_CD_Z");
             if (next.X != freezeX || next.Z != freezeZ) {
                 next.X = freezeX; next.Z = freezeZ;
                 p.SendPosition(next, new Orientation(yaw, pitch));

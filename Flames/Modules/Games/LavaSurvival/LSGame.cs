@@ -57,9 +57,9 @@ namespace Flames.Modules.Games.LS
         
         public static LSData Get(Player p) {
             object data;
-            if (!p.Extras.TryGet("F_LS_DATA", out data)) {
+            if (!p.Extras.TryGet("H_LS_DATA", out data)) {
                 data = new LSData();
-                p.Extras["F_LS_DATA"] = data;
+                p.Extras["H_LS_DATA"] = data;
             }
             return (LSData)data;
         }

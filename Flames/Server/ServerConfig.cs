@@ -176,6 +176,7 @@ namespace Flames
         public int IRCPort = 6697;
         [ConfigString("irc-server", "IRC bot", "irc.esper.net")]
         public string IRCServer = "irc.esper.net";
+
         [ConfigString("irc-nick", "IRC bot", "HarmonyBot")]
         public string IRCNick = "HarmonyBot";
         [ConfigString("irc-channel", "IRC bot", "#changethis", true)]

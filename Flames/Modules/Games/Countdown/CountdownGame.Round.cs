@@ -92,8 +92,8 @@ namespace Flames.Modules.Games.Countdown
             
             foreach (Player pl in players) {
                 Position pos = pl.Pos;
-                pl.Extras["F_CD_X"] = pos.X;
-                pl.Extras["F_CD_Z"] = pos.Z;
+                pl.Extras["H_CD_X"] = pos.X;
+                pl.Extras["H_CD_Z"] = pos.Z;
             }
             RemoveAllSquareBorders();
         } 

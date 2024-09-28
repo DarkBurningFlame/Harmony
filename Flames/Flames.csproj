@@ -11,7 +11,6 @@
     <RootNamespace>Flames</RootNamespace>
     <AssemblyName>Harmony_</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <NoWin32Manifest>False</NoWin32Manifest>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <NoStdLib>False</NoStdLib>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
@@ -56,10 +55,10 @@
     <StartAction>Project</StartAction>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Harmony_full.ico</ApplicationIcon>
+    <StartupObject>Flames.Cli.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Flames.Cli.Program</StartupObject>
+    <ApplicationIcon>Harmony_full.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data">
@@ -622,12 +621,16 @@
     <Compile Include="Modules\Relay\BotControllersCmd.cs" />
     <Compile Include="Modules\Relay\Discord\DiscordApiClient.cs" />
     <Compile Include="Modules\Relay\Discord\DiscordBot.cs" />
+    <Compile Include="Modules\Relay\Discord\DiscordBotEvents.cs" />
+    <Compile Include="Modules\Relay\Discord\DiscordMessages.cs" />
     <Compile Include="Modules\Relay\Discord\DiscordPlugin.cs" />
+    <Compile Include="Modules\Relay\Discord\DiscordUtils.cs" />
     <Compile Include="Modules\Relay\Discord\DiscordWebsocket.cs" />
     <Compile Include="Modules\Relay\IRC\IRCNickList.cs" />
     <Compile Include="Modules\Relay\IRC\IRCPlugin.cs" />
     <Compile Include="Modules\Relay\RelayBot.cs" />
     <Compile Include="Modules\Relay\RelayBotCmd.cs" />
+    <Compile Include="Modules\Relay\RelayBotEvents.cs" />
     <Compile Include="Modules\Security\IPThrottler.cs" />
     <Compile Include="Network\BaseWebSocket.cs" />
     <Compile Include="Network\ClassicProtocol.cs" />
@@ -662,6 +665,7 @@
     <Compile Include="Player\Warp.cs" />
     <Compile Include="Database\Undo\UndoFormat.cs" />
     <Compile Include="Network\Player.Networking.cs" />
+    <Compile Include="program.cs" />
     <Compile Include="Scripting\Plugin.cs" />
     <Compile Include="Scripting\Scripting.cs" />
     <Compile Include="Player\Ban.cs" />
@@ -682,6 +686,7 @@
     <Compile Include="Server\Maintenance\ZipWriter.cs" />
     <Compile Include="util\Formatting\Wildcard.cs" />
     <Compile Include="util\ImageUtils.cs" />
+    <Compile Include="util\NumberUtils.cs" />
     <Compile Include="util\OperatingSystem.cs" />
     <Compile Include="Server\Server.cs" />
     <Compile Include="Server\Server.DB.cs" />
@@ -727,7 +732,6 @@
     <Compile Include="1.9.3.9\Scripting\Plugin_simple\Scripting\CmdCompload.cs" />
     <Compile Include="1.9.3.9\Scripting\Plugin_simple\Scripting\CmdSimplePlugin.cs" />
     <Compile Include="1.9.3.9\Scripting\Plugin_simple\Scripting_Simple.cs" />
-    <Compile Include="program.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\sqlite3_x32.dll">
@@ -740,6 +744,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Testing\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="f.sh" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
