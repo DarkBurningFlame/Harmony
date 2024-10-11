@@ -108,7 +108,7 @@ namespace Flames.Commands.Scripting {
             if (plugin == null) return;
             
             if (Plugin_Simple.core.Contains(plugin)) {
-                p.Message(plugin.Name + " is a core simple plugin and cannot be unloaded.");
+                p.Message(plugin.name + " is a core simple plugin and cannot be unloaded.");
                 return;
             }
             
