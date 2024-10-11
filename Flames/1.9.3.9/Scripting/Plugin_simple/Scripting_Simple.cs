@@ -90,6 +90,16 @@ namespace Flames.Scripting
             return instances;
         }
 
+        public static bool IsSystemFile(string file) 
+        {
+            if (file.CaselessContains("SQL")) return true;
+            if (file.CaselessContains("Newtonsoft")) return true;
+            if (file.CaselessContains("System")) return true;
+            else 
+            {
+                return false;
+            }
+        }
 
         public static void AutoloadSimplePlugins()
         {
@@ -101,8 +111,7 @@ namespace Flames.Scripting
                 foreach (string file in files)
                 {
                     //TODO: Some system files might not contain these
-                    if (!file.CaselessContains("SQL") || file.CaselessContains("Newtonsoft")
-                        || file.CaselessContains("System"))
+                    if (!IsSystemFile(file))
                     {
                         LoadSimplePlugin(file, true);
                     }
@@ -306,7 +315,7 @@ namespace Flames.Scripting
                 AddReferences(path, args);
                 srcPaths[i] = path;
             }
-            args.ReferencedAssemblies.Add("Flames_.dll");
+            args.ReferencedAssemblies.Add("Harmony_.exe");
 
             PrepareArgs(args);
             InitCompiler();
