@@ -79,14 +79,12 @@ namespace Flames
         FlameMessage,
         /// <summary> Backwards compatibility with MCGalaxy plugins </summary>
         ConsoleMessage,
-#if CORE
         /// <summary> Work on backwards compatibility with other cores </summary>
         RandomMessage,
         /// <summary> Work on backwards compatibility with other cores </summary>
         NovaMessage,
         /// <summary> Work on backwards compatibility with other cores </summary>
         GoldenSparksMessage,
-#endif
     }
     
     public delegate void LogHandler(LogType type, string message);
