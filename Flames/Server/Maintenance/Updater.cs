@@ -28,22 +28,14 @@ namespace Flames
     public static class Updater
     {
 
-        public static string SourceURL = "https://github.com/RandomStrangers/Fire/";
-        public const string BaseURL = "https://github.com/RandomStrangers/Fire/blob/Flame/";
-        public const string UploadsURL = "https://github.com/RandomStrangers/Fire/tree/Flame/Uploads";
-        public const string UpdatesURL = "https://github.com/RandomStrangers/Fire/raw/Flame/Uploads/";
+        public static string SourceURL = "https://github.com/DarkBurningFlame/Harmony/";
+        public const string BaseURL = "https://github.com/DarkBurningFlame/Harmony/blob/main/";
+        public const string UploadsURL = "https://github.com/DarkBurningFlame/Harmony/tree/main/Uploads";
+        public const string UpdatesURL = "https://github.com/DarkBurningFlame/Harmony/raw/main/Uploads/";
         public static string WikiURL = "https://github.com/ClassiCube/MCGalaxy/wiki/";
-#if CORE
         const string CurrentVersionURL = UpdatesURL + "dev.txt";
-        const string dllURL = UpdatesURL + "Flames_dev.dll";
-        public static string ZipURL = "https://nightly.link/RandomStrangers/Fire/workflows/build/Flame/Harmony.zip";
-#else
-        const string CurrentVersionURL = UpdatesURL + "current.txt";
-        const string dllURL = UpdatesURL + "Flames_.dll";
-        public static string ZipURL = "https://nightly.link/RandomStrangers/Fire/workflows/build/Flame/Flames.zip";
-#endif
-        const string guiURL = UpdatesURL + "Flames.exe";
-        const string cliURL = UpdatesURL + "FlamesCLI.exe";
+        const string guiURL = UpdatesURL + "Harmony.exe";
+        const string cliURL = UpdatesURL + "Harmony_.exe";
 
         public static event EventHandler NewerVersionDetected;
 
@@ -85,11 +77,7 @@ namespace Flames
             {
                 try
                 {
-                    DeleteFiles("Flames_.update", "Flames.update", "FlamesCLI.update",
-                    "prev_Flames_.dll", "prev_Flames.exe", "prev_FlamesCLI.exe", 
-                    "NewFlames.zip", "MySql.Data.dll", "Newtonsoft.Json.dll", 
-                    "sqlite3_x64.dll", "sqlite3_x32.dll", "Flames.exe.config",
-                    "Flames.pdb", "Flames_.pdb", "FlamesCLI.pdb", "FlamesCLI.exe.config");
+                    DeleteFiles("Harmony_.update", "Harmony.update", "prev_Harmony.exe", "prev_Harmony_.exe");
                 }
                 catch (Exception ex)
                 {
@@ -97,15 +85,8 @@ namespace Flames
                 }
 
                 WebClient client = HttpUtil.CreateWebClient();
-                //client.DownloadFile(dllURL, "Flames_.update");
-                //client.DownloadFile(guiURL, "Flames.update");
-                //client.DownloadFile(cliURL, "FlamesCLI.update");
-                if (Directory.Exists("New")) 
-                {
-                   Directory.Delete("New", true);
-                }
-                client.DownloadFile(ZipURL, "NewFlames.zip");
-
+                client.DownloadFile(guiURL, "Harmony_.update");
+                client.DownloadFile(cliURL, "Harmony.update");
                 Level[] levels = LevelInfo.Loaded.Items;
                 foreach (Level lvl in levels)
                 {
@@ -120,20 +101,10 @@ namespace Flames
                 // Move current files to previous files (by moving instead of copying, 
                 //  can overwrite original the files without breaking the server)
 
-                AtomicIO.TryMove("Flames_.dll", "prev_Flames_.dll");
-                AtomicIO.TryMove("Flames.exe", "prev_Flames.exe");
-                AtomicIO.TryMove("FlamesCLI.exe", "prev_FlamesCLI.exe");
-                ZipFile.ExtractToDirectory("NewFlames.zip", "New");
-                string Dir = Directory.GetCurrentDirectory() + "/";
-                string[] Files = Directory.GetFiles("New");
-                foreach (string file in Files)
-                {
-                    File.Move(file, Dir + file);
-                }
-                
-                //File.Move("Flames_.update", "Flames_.dll");
-                //File.Move("Flames.update", "Flames.exe");
-                //File.Move("FlamesCLI.update", "FlamesCLI.exe");
+                AtomicIO.TryMove("Harmony_.exe", "prev_Harmony_.exe");
+                AtomicIO.TryMove("Harmony.exe", "prev_Harmony.exe");
+                File.Move("Harmony_.update", "Harmony_.exe");
+                File.Move("Harmony.update", "Harmony.exe");
                 Server.Stop(true, "Updating server.");
             }
             catch (Exception ex)
