@@ -40,7 +40,7 @@ namespace Flames
         }
 
         /// <summary> Name of the plugin. </summary>
-        public abstract string name { get { return ""; } }
+        public abstract string name { get; }
         /// <summary> Oldest version of Flames this plugin is compatible with. </summary>
         public virtual string Flames_Version { get { return null; } }
         /// <summary> Work on backwards compatibility with MCGalaxy </summary>
@@ -54,7 +54,7 @@ namespace Flames
         /// <summary> Work on backwards compatibility with other cores </summary>
         public virtual string RandomStrangers_Version { get { return null; } }
         /// <summary> The creator/author of this plugin. (Your name) </summary>
-        public abstract string creator { get { return ""; } }
+        public abstract string creator { get; }
 
         /// <summary> Whether or not to auto load this plugin on server startup. </summary>
         public virtual bool LoadAtStartup { get { return true; } }
