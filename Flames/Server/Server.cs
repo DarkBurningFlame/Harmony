@@ -77,7 +77,7 @@ namespace Flames
             }
         }
         
-        internal static ConfigElement[] serverConfig, levelConfig, zoneConfig;
+        public static ConfigElement[] serverConfig, levelConfig, zoneConfig;
         public static void Start() {
             serverConfig = ConfigElement.GetAll(typeof(ServerConfig));
             levelConfig  = ConfigElement.GetAll(typeof(LevelConfig));
@@ -91,7 +91,7 @@ namespace Flames
             ForceEnableTLS();
 
             SQLiteBackend.Instance.LoadDependencies();
-#if !F_STANDALONE
+#if !H_STANDALONE
             MySQLBackend.Instance.LoadDependencies();
 #endif
 
@@ -118,16 +118,18 @@ namespace Flames
                                    null, TimeSpan.FromMinutes(5));
 
         }
-    static void ForceEnableTLS() {
+        public static void ForceEnableTLS() 
+        {
             // Force enable TLS 1.1/1.2, otherwise checking for updates on Github doesn't work
             try { ServicePointManager.SecurityProtocol |= (SecurityProtocolType)0x300; } catch { }
             try { ServicePointManager.SecurityProtocol |= (SecurityProtocolType)0xC00; } catch { }
         }
-        static void EnsureDirectoryDoesntExist(string dir, bool persist)
+        public static void EnsureDirectoryDoesntExist(string dir, bool persist)
         {
             if (Directory.Exists(dir)) Directory.Delete(dir, persist);
         }
-        static void EnsureFilesExist() {
+        public static void EnsureFilesExist() 
+        {
             EnsureDirectoryExists("properties");
             EnsureDirectoryExists("properties/games");
             EnsureDirectoryExists("levels");
@@ -143,7 +145,7 @@ namespace Flames
             EnsureDirectoryExists("extra/bots");
             EnsureDirectoryExists(Paths.ImportsDir);
             EnsureDirectoryExists("blockdefs");
-#if !F_STANDALONE
+#if !H_STANDALONE
             EnsureDirectoryExists(Modules.Compiling.ICompiler.COMMANDS_SOURCE_DIR); // TODO move to compiling module
 #endif
         }
@@ -155,7 +157,7 @@ namespace Flames
         public static void LoadAllSettings() { LoadAllSettings(false); }
         
         // TODO rethink this
-        static void LoadAllSettings(bool commands) {
+        public static void LoadAllSettings(bool commands) {
             Colors.Load();
             Alias.LoadCustom();
             BlockDefinition.LoadGlobal();
@@ -187,8 +189,8 @@ namespace Flames
         }
 
 
-        static readonly object stopLock = new object();
-        static volatile Thread stopThread;
+        public static readonly object stopLock = new object();
+        public static volatile Thread stopThread;
         public static Thread Stop(bool restart, string msg) {
             if (Config.SayBye)
             {
@@ -204,7 +206,7 @@ namespace Flames
             }
         }
         
-        static void ShutdownThread(bool restarting, string msg) {
+        public static void ShutdownThread(bool restarting, string msg) {
             try {
                 Logger.Log(LogType.SystemActivity, "Server shutting down ({0})", msg);
             } catch { }
@@ -273,7 +275,7 @@ namespace Flames
             return RestartPath;
 #else
             // NET core/5/6 executables tend to use the following structure:
-            //   FlamesCLI_core --> FlamesCLI_core.dll
+            //   Harmony_core --> Harmony_core.dll
             // in this case, 'RestartPath' will include '.dll' since this file
             //  is actually the managed assembly, but we need to remove '.dll'
             //   as the actual executable which must be started is the non .dll file
