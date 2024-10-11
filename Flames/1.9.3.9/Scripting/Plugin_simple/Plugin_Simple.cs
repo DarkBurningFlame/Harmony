@@ -83,7 +83,7 @@ namespace Flames
             catch (Exception ex)
             {
                 Logger.LogError("Error loading simple plugin " + p.name, ex);
-                if (!string.IsNullOrEmpty(p.Creator)) Logger.Log(LogType.Warning, "You can go bug {0} about it.", p.creator);
+                if (!string.IsNullOrEmpty(p.creator)) Logger.Log(LogType.Warning, "You can go bug {0} about it.", p.creator);
                 return false;
             }
         }
