@@ -6,10 +6,10 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{12597DB0-7C34-4DE1-88EA-9250FF3372EB}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Flames</RootNamespace>
-    <AssemblyName>Flames_</AssemblyName>
+    <AssemblyName>Harmony_</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <NoWin32Manifest>False</NoWin32Manifest>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
@@ -727,6 +727,7 @@
     <Compile Include="1.9.3.9\Scripting\Plugin_simple\Scripting\CmdCompload.cs" />
     <Compile Include="1.9.3.9\Scripting\Plugin_simple\Scripting\CmdSimplePlugin.cs" />
     <Compile Include="1.9.3.9\Scripting\Plugin_simple\Scripting_Simple.cs" />
+    <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\sqlite3_x32.dll">
