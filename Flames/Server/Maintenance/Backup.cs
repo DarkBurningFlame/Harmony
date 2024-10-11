@@ -25,7 +25,7 @@ namespace Flames
     /// <summary> Utility methods for backing up and restoring a server. </summary>
     public static class Backup 
     {
-        const string zipPath = "Flames.zip", sqlPath = "SQL.sql";
+        const string zipPath = "Harmony.zip", sqlPath = "SQL.sql";
         
         public static void Perform(Player p, bool files, bool db, bool lite, bool compress) {
             if (db) {
