@@ -40,15 +40,11 @@ namespace Flames
         }
 
         /// <summary> Name of the plugin. </summary>
-        public virtual string name { get { return ""; } }
-        public virtual string Name { get { return ""; } }
-
+        public abstract string name { get { return ""; } }
         /// <summary> Oldest version of Flames this plugin is compatible with. </summary>
         public virtual string Flames_Version { get { return null; } }
         /// <summary> Work on backwards compatibility with MCGalaxy </summary>
         public virtual string MCGalaxy_Version { get { return null; } }
-
-#if CORE
         /// <summary> Work on backwards compatibility with other cores </summary>
         public virtual string SuperNova_Version { get { return null; } }
         /// <summary> Work on backwards compatibility with other cores </summary>
@@ -57,11 +53,8 @@ namespace Flames
         public virtual string GoldenSparks_Version { get { return null; } }
         /// <summary> Work on backwards compatibility with other cores </summary>
         public virtual string RandomStrangers_Version { get { return null; } }
-#endif
-
         /// <summary> The creator/author of this plugin. (Your name) </summary>
-        public virtual string Creator { get { return ""; } }
-        public virtual string creator { get { return ""; } }
+        public abstract string creator { get { return ""; } }
 
         /// <summary> Whether or not to auto load this plugin on server startup. </summary>
         public virtual bool LoadAtStartup { get { return true; } }
@@ -90,7 +83,7 @@ namespace Flames
             catch (Exception ex)
             {
                 Logger.LogError("Error loading simple plugin " + p.name, ex);
-                if (!string.IsNullOrEmpty(p.Creator)) Logger.Log(LogType.Warning, "You can go bug {0} about it.", p.Creator);
+                if (!string.IsNullOrEmpty(p.Creator)) Logger.Log(LogType.Warning, "You can go bug {0} about it.", p.creator);
                 return false;
             }
         }
