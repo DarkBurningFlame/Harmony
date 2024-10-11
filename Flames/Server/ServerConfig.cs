@@ -25,11 +25,7 @@ namespace Flames
 
     public sealed class ServerConfig : EnvConfig 
     {
-#if CORE
-        public const string Software = "&4H&6a&5r&0m&7o&2n&dy&a";
-#else
-        public const string Software = "&4F&cl&4a&cm&4e&cs";
-#endif
+        public const string Software = "&4H&6a&5r&0m&7o&2n&dy&a Dev";
         [ConfigString("server-name", "Server", "&a[" + Software + "] Default", false, " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~")]
         public string Name = "&a[" + Software + "] Default";
         [ConfigString("motd", "Server", "Welcome", false)]
@@ -54,13 +50,8 @@ namespace Flames
         public bool SayHello = true;
         [ConfigBool("say-bye", "Server", true)]
         public bool SayBye = true;
-#if CORE
-        [ConfigString("server-logo", "Server", "https://github.com/RandomStrangers/Fire/blob/Flame/GUI/Harmony_full.png")]
-        public string ServerLogo = "https://github.com/RandomStrangers/Fire/blob/Flame/GUI/Harmony_full.png";
-#else
-        [ConfigString("server-logo", "Server", "https://github.com/RandomStrangers/Fire/blob/Flame/GUI/Flames.png")]
-        public string ServerLogo = "https://github.com/RandomStrangers/Fire/blob/Flame/GUI/Flames.png";
-#endif
+        [ConfigString("server-logo", "Server", "https://github.com/DarkBurningFlame/Harmony/blob/main/GUI/Harmony_full.png")]
+        public string ServerLogo = "https://github.com/DarkBurningFlame/Harmony/blob/main/GUI/Harmony_full.png";
         [ConfigBool("autoload", "Level", true)]
         public bool AutoLoadMaps = true;        
         /// <summary> true if maps sees server-wide chat, false if maps have level-only/isolated chat </summary>
@@ -185,13 +176,8 @@ namespace Flames
         public int IRCPort = 6697;
         [ConfigString("irc-server", "IRC bot", "irc.esper.net")]
         public string IRCServer = "irc.esper.net";
-#if CORE
         [ConfigString("irc-nick", "IRC bot", "HarmonyBot")]
         public string IRCNick = "HarmonyBot";
-#else
-        [ConfigString("irc-nick", "IRC bot", "FlamesBot")]
-        public string IRCNick = "FlamesBot";
-#endif
         [ConfigString("irc-channel", "IRC bot", "#changethis", true)]
         public string IRCChannels = "#changethis";
         [ConfigString("irc-opchannel", "IRC bot", "#changethistoo", true)]
@@ -337,7 +323,6 @@ namespace Flames
         public TimeSpan IPSpamBlockTime = TimeSpan.FromSeconds(180);
         [ConfigTimespan("ip-spam-interval", "Spam control", 60, false)]
         public TimeSpan IPSpamInterval = TimeSpan.FromSeconds(60);
-#if CORE
         /// <summary> Work on backwards compatibility with other cores </summary>
         [ConfigString("Core-State", "Chat", "Burning")]
         public string CoreState = "Burning";
@@ -352,6 +337,5 @@ namespace Flames
         public bool[] ConsoleLogging = defLogLevels;
         /// <summary> Work on backwards compatibility with other cores </summary>
         public bool[] NovaLogging = defLogLevels;
-#endif
     }
 }
